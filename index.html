@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WASD Steuerung</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    button { font-size: 1.5em; margin: 10px; padding: 15px 30px; }
+  </style>
+</head>
+<body>
+  <h1>WASD Motorsteuerung</h1>
+  <button onclick="send('w')">W – beide vorwärts</button>
+  <button onclick="send('s')">S – beide rückwärts</button><br>
+  <button onclick="send('a')">A – links drehen</button>
+  <button onclick="send('d')">D – rechts drehen</button><br>
+  <button onclick="send('e')">E – Aktuator ausfahren</button>
+  <button onclick="send('r')">R – Aktuator einfahren</button>
+
+  <script>
+    const token = "meinSuperGeheimerToken123";
+    function send(cmd) {
+      fetch("https://dein-server.de/api/control", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token, cmd })
+      });
+    }
+  </script>
+</body>
+</html>
