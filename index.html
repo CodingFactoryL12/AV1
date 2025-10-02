@@ -19,7 +19,7 @@
   <script>
     const token = "meinSuperGeheimerToken123";
     function send(cmd) {
-      fetch("https://dein-server.de/api/control", {
+      fetch("/api/control", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token, cmd })
